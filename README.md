@@ -27,6 +27,13 @@ You can learn more in the [Treble documentation]().
 
 ## Threekit Service Worker
 
+Deployment uses Node.js 24 and npm with `package-lock.json`. The Dockerfile runs
+`npm ci` and serves the committed `build/` directory using `node server.js`.
+Run `npm run build` and commit the resulting build before deploying via Docker.
+The `.dockerignore` excludes local dependencies so they cannot overwrite the
+Linux dependencies installed in the image. For a buildpack deployment, use
+`npm run build` as the build command and `npm run serve` as the run command.
+
 `src/registerServiceWorker.ts` registers `/sw.js` without delaying React startup.
 `public/sw.js` adapts the runtime caching approach from Daikin for NewBalance.
 It works on HTTPS or localhost, in development and production. Deployment assumes

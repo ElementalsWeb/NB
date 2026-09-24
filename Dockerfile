@@ -1,12 +1,12 @@
-#   React build stage
-FROM node:16 as react-build
+# Serve the production build committed to this repository.
+FROM node:24-bookworm-slim
 
 WORKDIR /app
 
-COPY package.json /app/
+COPY package.json package-lock.json ./
 
-RUN yarn install
+RUN npm ci --include=dev --no-audit --no-fund
 
 COPY . /app/
 
-CMD yarn serve
+CMD ["node", "server.js"]
