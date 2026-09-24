@@ -124,6 +124,20 @@ if (!fs.existsSync(uploadsDir)) {
   fs.mkdirSync(uploadsDir);
 }
 
+// Serve the deployed worker explicitly, with update-friendly headers.
+app.get('/sw.js', (_req, res) => {
+  res.set({
+    'Content-Type': 'application/javascript; charset=utf-8',
+    'Service-Worker-Allowed': '/',
+    'Cache-Control': 'no-cache, no-store, must-revalidate',
+  });
+  res.sendFile(path.join(__dirname, 'build', 'sw.js'), (error) => {
+    if (error && !res.headersSent) {
+      res.status(error.statusCode || 500).send('// Service Worker unavailable');
+    }
+  });
+});
+
 app.use(express.static(path.join(__dirname, 'build')));
 app.use('/images', express.static(path.join(__dirname, 'public')));
 

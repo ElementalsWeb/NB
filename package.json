@@ -36,6 +36,8 @@
   "scripts": {
     "start": "treble-scripts start",
     "build": "treble-scripts build  ",
+    "postbuild": "node scripts/copy-service-worker.js",
+    "test:sw": "node --test tests/service-worker.test.cjs",
     "format": "prettier --write ./src",
     "lint": "eslint ./src",
     "serve": "node server.js"
