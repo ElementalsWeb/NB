@@ -8,5 +8,5 @@ export default {
   showShare: false,
   locale: undefined,
   allowMobileVerticalOrbit: false,
-  publishStage: 'draft',
+  publishStage: 'published',
 };
