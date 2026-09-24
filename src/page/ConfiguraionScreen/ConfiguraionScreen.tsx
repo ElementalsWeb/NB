@@ -18,10 +18,17 @@ export const ConfiguraionScreen = () => {
   const tkid = searchParams.get('tkid');
 
   const saveConfig: Record<string, string> = {
-    Shorts: 'rL7-gjOig',
-    Jersey: 'n0nAvYnGH',
-    Hoodie: 'JOksyDpjv',
-    Pants: 'tjic2RroK',
+    // Scene
+    // Shorts: 'rL7-gjOig',
+    // Jersey: 'n0nAvYnGH',
+    // Hoodie: 'JOksyDpjv',
+    // Pants: 'tjic2RroK',
+
+    // Item
+    Shorts: 'PX6cvl4pP',
+    Jersey: 'L_nS0OEWW',
+    Hoodie: 'oHfib52L2',
+    Pants: 'GEnZUGUiM',
   };
 
   if (!configID) return <></>;
