@@ -3,6 +3,9 @@
 /.pnp
 .pnp.js
 
+# npm is the package manager; keep package-lock.json as the only lockfile.
+/yarn.lock
+
 # testing
 /coverage
 
